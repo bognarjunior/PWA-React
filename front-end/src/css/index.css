@@ -3,3 +3,24 @@
   margin: 0;
   padding: 0;
 }
+
+div.center {
+  box-sizing: border-box;
+  padding: 5px;
+  display: table;
+  margin: 0 auto;
+  min-width: 320px;
+  margin-top: 92px;
+}
+
+@media (max-width: 992px) {
+  div.center {
+    margin-top: 78;
+  }
+}
+
+@media (max-width: 992px) {
+  div.center {
+    margin-top: 62;
+  }
+}

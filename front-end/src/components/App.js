@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
+import Header from './Header';
+import NovoUsuario from './NovoUsuario';
+ 
 export default class App extends Component {
   render() {
     return (
-      <h1>
-        Componente React!
-      </h1>
+      <div>
+        <Header />
+        <NovoUsuario />
+      </div>
     )
   }
 }

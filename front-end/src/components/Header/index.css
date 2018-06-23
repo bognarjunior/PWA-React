@@ -32,3 +32,14 @@ div.header h4.label {
     line-height: 78px;
   }
 }
+
+@media (max-width: 600px) {
+  div.header img.logo {
+    height: 62px;
+    width: 110px;
+  }
+  
+  div.header h4.label {
+    line-height: 62px;
+  }
+}
