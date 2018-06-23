@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Label from '../Label'
 import Input from '../Input'
+import GenderImage from '../GenderImage'
 
 export default class NovoUsuario extends Component {
   state = { 
@@ -35,6 +36,7 @@ export default class NovoUsuario extends Component {
             defaultValue={this.state.usuario.nome}
             onChange={this.atualizarNome}
           />
+          <GenderImage genero="m" />
         </form>
       </div>
     )

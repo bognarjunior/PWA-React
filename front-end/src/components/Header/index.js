@@ -1,6 +1,5 @@
-import React from 'react';
-import './index.css';
-import './img/logo.png';
+import React from 'react'
+import './index.css'
 
 export default function Header() {
   return (
