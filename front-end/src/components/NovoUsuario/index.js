@@ -3,6 +3,7 @@ import Label from '../Label'
 import Input from '../Input'
 import GenderSelector from '../GenderSelector'
 import Usuario from '../../models/Usuario'
+import Button from '../Button'
 
 export default class NovoUsuario extends Component {
   state = { 
@@ -30,6 +31,18 @@ export default class NovoUsuario extends Component {
     });
   }
 
+  validar = (e) => {
+    e.preventDefault();
+    console.log('O botão Próximo foi clicado...'); 
+    let usuario = this.state.usuario;
+    let validacao = this.state.validacao;
+    validacao.nomeInvalido = ! usuario.validarNome();
+    validacao.generoInvalido = ! usuario.validarGenero();
+    this.setState({
+      validacao: validacao
+    });  
+  }
+
   render() {
     return (
       <div className="center">
@@ -51,7 +64,12 @@ export default class NovoUsuario extends Component {
           <GenderSelector
             isInvalido={this.state.validacao.generoInvalido}
             genero={this.state.usuario.genero}
-            atualizarGenero={this.atualizarGenero.bind(this)}
+            atualizarGenero={this.atualizarGenero}
+          />
+          <Button
+            principal
+            texto="Próximo"
+            onClick={this.validar}
           />
         </form>
       </div>
