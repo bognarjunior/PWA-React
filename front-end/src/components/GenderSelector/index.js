@@ -15,7 +15,7 @@ export default (props) => {
   };
 
   return (
-    <div className={estilo}>
+    <div style={estilo}>
       <GenderButton
         selecionado={masculino}
         genero={'m'}
