@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import Label from '../Label'
 import Input from '../Input'
 import GenderSelector from '../GenderSelector'
+import Usuario from '../../models/Usuario'
 
 export default class NovoUsuario extends Component {
   state = { 
-    usuario: {
-      nome: '',
-      genero: ''
-    },
-      validacao: {
+    usuario: new Usuario(),
+    validacao: {
       nomeInvalido: false,
       generoInvalido: false
     }
