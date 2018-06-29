@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Image from '../Image'
 import ButtonImage from '../ButtonImage'
-import ManipularEvento from './ManipularEvento'
+import ManipularEvento from './ManipularEventos'
  
 export default class ImageScroller extends Component {
   state = {
@@ -89,7 +89,7 @@ export default class ImageScroller extends Component {
           e.preventDefault();
           let manipularEvento = this.state.manipularEvento;
           let index = manipularEvento.index;
-          if (posicao == 'esquerda') {
+          if (posicao === 'esquerda') {
             index += -1;
           } else {
             index += 1;

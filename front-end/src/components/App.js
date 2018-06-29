@@ -8,7 +8,15 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <NovoUsuario erro={msg=>this.refs.toast.erro(msg)} />
+        <NovoUsuario 
+          onSubmit={usuario => {
+            let genero = usuario.genero === 'm' ? 'o' : 'a'
+            this.refs.toast.sucesso(
+              `Seja bem-vind${genero} ${usuario.nome}!`
+              )
+          }}
+          erro={msg=>this.refs.toast.erro(msg)} 
+        />
         <Toast ref="toast" />
       </div>
     )

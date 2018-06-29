@@ -3,7 +3,9 @@ import Label from '../Label'
 import Input from '../Input'
 import GenderSelector from '../GenderSelector'
 import Usuario from '../../models/Usuario'
+import Avatar from '../../models/Avatar'
 import Button from '../Button'
+import ImageScroller from '../ImageScroller'
 
 export default class NovoUsuario extends Component {
   state = { 
@@ -26,6 +28,7 @@ export default class NovoUsuario extends Component {
   atualizarGenero = (e, genero) => {
     e.preventDefault();
     let usuario = this.state.usuario;
+    usuario.avatar = Avatar.obterTodos()[0];
     usuario.genero = genero;
     this.setState({
       usuario: usuario
@@ -110,21 +113,56 @@ export default class NovoUsuario extends Component {
             texto="Voltar"
             onClick={e => {
               e.preventDefault();
+              let usuario = this.state.usuario
+              usuario.avatar = Avatar.obterTodos()[0];
               this.setState({
+                usuario: usuario,
                 primeiraVisaoCompleta: false
               });
             }}
           />
-          <Button principal texto="Salvar" />
+          <Button 
+            principal
+            texto="Salvar"
+            onClick={e => {
+              e.preventDefault()
+              this.props.onSubmit(this.state.usuario)
+            }}
+          />
         </section>
       )
-      } else {
-        return (
-          <section>
-            <Button principal texto="Próximo" onClick={this.validar} />
-          </section>
-        )
-      }
+    } else {
+      return (
+        <section>
+          <Button principal texto="Próximo" onClick={this.validar} />
+        </section>
+      )
+    }
+  }
+
+  renderizarAvatar() {
+    if (this.state.primeiraVisaoCompleta) {
+      return (
+        <section>
+          <Label texto="Escolha seu avatar:" />
+          <ImageScroller
+            arquivo="img/avatars.png"
+            eixoY={(this.state.usuario.genero === 'm' ? 0 : 1)}
+            elementos={Avatar.obterTodos()}
+            selecionado={this.state.usuario.avatar}
+            onChange={avatar => {
+              let usuario = this.state.usuario;
+              usuario.avatar = avatar;
+              this.setState({
+                usuario: usuario
+              });
+            }}
+          />
+        </section>
+      )
+    } else {
+      return null
+    }
   }
 
   render() {
@@ -133,6 +171,7 @@ export default class NovoUsuario extends Component {
         <form className="pure-form pure-form-stacked">
         {this.renderizarNome()}
         {this.renderizarGenero()}
+        {this.renderizarAvatar()}
         {this.renderizarBotoes()}
         </form>
       </div>

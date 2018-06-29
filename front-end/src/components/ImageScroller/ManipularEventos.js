@@ -101,17 +101,17 @@ class ManipularEvento {
 
   corrigirIndex() {
     if (
-      this.index == 1 && 
-      this.direcao == 1 && 
-      this.left == this.maxLeft
+      this.index === 1 && 
+      this.direcao === 1 && 
+      this.left === this.maxLeft
     ) {
       this.index = 0;
     }
 
     if (
-      this.index == (this.maxIndex - 2) &&
-      this.direcao == -1 &&
-      Math.sign(this.left) == -1)
+      this.index === (this.maxIndex - 2) &&
+      this.direcao === -1 &&
+      Math.sign(this.left) === -1)
     {
       this.index = (this.maxIndex - 1);
     }
