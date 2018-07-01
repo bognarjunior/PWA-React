@@ -1,5 +1,5 @@
 import Avatar from './Avatar'
-import Repository from '../infrastructure/Repository';
+import Repository from '../infrastructure/Repository'
 const repository = new Repository();
 
 export default class Usuario {
