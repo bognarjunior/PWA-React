@@ -7,24 +7,22 @@ import Usuario from '../models/Usuario'
 export default class App extends Component {
   constructor() {
     super();
-    this.state = {
-      usuario : null
-    };
     Usuario.obter(usuario => {
       this.setState({usuario: usuario});
     },() => {
       this.setState({usuario: undefined});
     });
-  }
+  };
+  
 
-  msgNovoUsuario(usuario) {
+  msgNovoUsuario = (usuario) => {
     let genero = usuario.genero === 'm' ? 'o' : 'a';
     this.refs.toast.sucesso(
       `Seja bem-vind${genero} ${usuario.nome}!`
     );
   }
 
-  renderizarNovoUsuario() {
+  renderizarNovoUsuario = () => {
     let usuario = this.state.usuario;        
     if (usuario) {
       return (

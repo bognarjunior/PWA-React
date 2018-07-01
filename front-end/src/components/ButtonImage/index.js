@@ -3,7 +3,6 @@ import './index.css'
 import Image from '../Image'
 
 export default (props) => {
-
   let estilo = {};
   let index = 0;
   if (props.posicao === 'direita') {
@@ -18,7 +17,6 @@ export default (props) => {
   let propriedades = Object.assign({},props);
   delete propriedades.posicao;
  
-
   return (
     <div
       style={estilo}

@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# v0.0.1
+
+CACHE:
+static/js/bundle.js
+img/avatars.png
+img/botoes.png
+img/logo.png
+
+NETWORK:
+*

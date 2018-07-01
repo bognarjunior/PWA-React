@@ -4,12 +4,12 @@
   padding: 0;
 }
 
-div.center {
+div.center {        
   box-sizing: border-box;
   padding: 5px;
   display: table;
   margin: 0 auto;
-  min-width: 320px;
+  min-width: 320px;    
   margin-top: 92px;
 }
 
@@ -19,7 +19,7 @@ div.center {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 600px) {
   div.center {
     margin-top: 62;
   }
